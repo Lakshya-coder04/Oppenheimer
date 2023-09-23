@@ -29,9 +29,7 @@
                 <li class="menu-item">Cast</li>
                 <li class="menu-item">Get Tickets</li>
                 <li id="spotify" class="menu-item">Official SoundTrack</li>
-                <li class="menu-item"> <a target="_blank"
-                        href="https://www.britannica.com/biography/J-Robert-Oppenheimer">Biography</a>
-                </li>
+                <li id="bio" class="menu-item">Biography</li>
             </ol>
         </footer>
 
@@ -39,18 +37,49 @@
 
     <!-- Spotify Modal -->
 
-    <div class="modal" id="myModal">
+    <div class="modal-spotify" id="myModal">
 
         <div class="modal-content">
-
-            <span class="close">&times;</span>
+            
+            <span class="close-spotify">&times;</span>
             <iframe style="border-radius:12px"
-                src="https://open.spotify.com/embed/album/0rwbMKjNkp4ehQTwf9V2Jk?utm_source=generator&theme=0"
-                width="500" height="500" frameBorder="0" allowfullscreen=""
+                src="https://open.spotify.com/embed/album/0rwbMKjNkp4ehQTwf9V2Jk?utm_source=generator&theme=0" frameBorder="0" allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
             </iframe>
         </div>
+        
     </div>
+    <!-- bio Modal -->
+
+    <div class="modal-bio" id="myModal">
+
+        <div class="modal-content">
+            
+            <span class="close-bio">&times;</span>
+            <iframe style="border-radius:12px"
+                src="https://www.britannica.com/biography/J-Robert-Oppenheimer" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+            </iframe>
+        </div>
+        
+    </div>
+
+    <!-- CAST modal -->
+    <div class="modal-cast" id="myModal">
+        
+        <div class="modal-content">
+            
+            <span class="close-cast">&times;</span>
+            <iframe style="border-radius:12px"
+                src="" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+            </iframe>
+        
+        </div>
+        
+    </div>
+
+
 
 
     <script src="./script.js"></script>

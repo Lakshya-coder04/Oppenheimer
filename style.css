@@ -134,7 +134,7 @@ body {
 }
 
 /* spotify  modal */
-.modal {
+.modal-spotify, .modal-bio, .modal-cast {
   display: none;
   position: fixed;
   top: 0;
@@ -147,17 +147,24 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+
+iframe{
+  width: 700px;
+  height: 700px;
+}
+
 /* The Close Button */
-.close {
+.close-spotify, .close-bio, .close-cast {
   color: rgba(228, 203, 181, 0.9);
   float: right;
   font-size: 50px;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-  color: rgba(241, 99, 49, 255);
+  color: orange !important;
   text-decoration: none;
   cursor: pointer;
 }
