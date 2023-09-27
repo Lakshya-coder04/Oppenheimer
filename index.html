@@ -30,7 +30,7 @@
         <footer class="footer">
             <ol class="menu">
                 <li id="cast" class="menu-item" onclick="openModal() ">Cast</li>
-                <li class="menu-item">Get Tickets</li>
+                <li id="tickets" class="menu-item" onclick="openTickets()">Get Tickets</li>
                 <li id="spotify" class="menu-item">Official SoundTrack</li>
             </ol>
         </footer>
@@ -58,14 +58,21 @@
     <div class="modal-cast" id="castModal">
         <span class="close-cast" onclick="closeModal()">&times;</span>
         <div class="modal-content-cast">
-
             <div class="cast-members">
             </div>
-
-
         </div>
-
     </div>
+
+    <!-- Tickets modal -->
+    <div class="modal-tickets" id="ticketsModal">
+        <span class="close-tickets" onclick="closeTickets()">&times;</span>
+        <div class="modal-content-tickets">
+            <h2>Book your tickets here: </h2>
+            <ul class="theaters">
+            </ul>
+        </div>
+    </div>
+
 
 
 

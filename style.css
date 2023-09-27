@@ -147,7 +147,8 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-cast {
+.modal-cast,
+.modal-tickets {
   display: none;
   position: fixed;
   top: 0;
@@ -158,14 +159,35 @@ body {
   z-index: 1;
   overflow-y: auto;
 }
-.modal-content-cast {
-  background-color: #222;
+.modal-content-cast,
+.modal-content-tickets {
   margin: 20px;
   padding: 20px;
   border-radius: 5px;
   max-width: 80%;
   margin: 0 auto;
   position: relative;
+}
+
+.modal-content-tickets {
+  margin-top: 20px;
+  background-color: rgba(241, 99, 49, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content-tickets h2 {
+  color: #000000;
+}
+.theaters {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  margin: 20px 0;
 }
 
 .cast-members {
@@ -200,7 +222,8 @@ iframe {
 
 /* The Close Button */
 .close-spotify,
-.close-cast {
+.close-cast,
+.close-tickets {
   color: rgba(228, 203, 181, 0.9);
   float: right;
   font-size: 50px;
@@ -208,7 +231,8 @@ iframe {
 }
 
 .close-spotify:hover,
-.close-cast:hover {
+.close-cast:hover,
+.close-tickets:hover {
   color: red !important;
   text-decoration: none;
   cursor: pointer;

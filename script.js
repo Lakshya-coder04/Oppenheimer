@@ -39,12 +39,22 @@ function closeSpotify() {
 //call the function
 closeSpotify();
 
+//cast
 function openModal() {
   document.getElementById('castModal').style.display = 'block';
 }
 
 function closeModal() {
   document.getElementById('castModal').style.display = 'none';
+}
+
+//tickets
+function openTickets() {
+  document.getElementById('ticketsModal').style.display = 'block';
+}
+
+function closeTickets() {
+  document.getElementById('ticketsModal').style.display = 'none';
 }
 
 //api key forsquare: fsq3bSewMuMRwCzpIJIwIUbeSYR97aUj8yrSO3RB+9ghEGQ=
@@ -75,7 +85,7 @@ async function placeSearch() {
       open_now: 'false',
       sort: 'DISTANCE',
     });
-    const results = await fetch(
+    const result = await fetch(
       `https://api.foursquare.com/v3/places/search?${searchParams}`,
       {
         method: 'GET',
@@ -85,8 +95,16 @@ async function placeSearch() {
         },
       }
     );
-    const data = await results.json();
-    console.log(data);
+    const data = await result.json();
+    // console.log(data.results[3].name);
+
+    const theaterList = document.querySelector('.theaters');
+
+    for (let index = 0; index < data.results.length; index++) {
+      const theater = document.createElement('li');
+      theater.innerHTML = data.results[index].name;
+      theaterList.appendChild(theater);
+    }
   } catch (err) {
     console.error(err);
   }
