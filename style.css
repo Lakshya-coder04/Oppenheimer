@@ -134,7 +134,7 @@ body {
 }
 
 /* spotify  modal */
-.modal-spotify, .modal-bio, .modal-cast {
+.modal-spotify {
   display: none;
   position: fixed;
   top: 0;
@@ -147,26 +147,72 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.modal-cast {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 1;
+  overflow-y: auto;
+}
+.modal-content-cast {
+  background-color: #222;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
 
-iframe{
-  width: 700px;
-  height: 700px;
+.cast-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.cast-card {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cast-card img {
+  width: 100px;
+  height: auto;
+}
+
+.cast-card h2 {
+  color: wheat;
+  margin-top: 10px; /* Add some spacing between the avatar and the name */
+}
+
+iframe {
+  width: 500px;
+  height: 500px;
 }
 
 /* The Close Button */
-.close-spotify, .close-bio, .close-cast {
+.close-spotify,
+.close-cast {
   color: rgba(228, 203, 181, 0.9);
   float: right;
   font-size: 50px;
   transition: color 0.3s ease;
-  cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-  color: orange !important;
+.close-spotify:hover,
+.close-cast:hover {
+  color: red !important;
   text-decoration: none;
   cursor: pointer;
+  z-index: 3;
 }
 
 .sparkle {
@@ -194,5 +240,112 @@ iframe{
   100% {
     transform: translateY(-100vh) rotate(360deg);
     opacity: 0.3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .text-container {
+    height: 100%;
+    padding-top: 40px;
+    justify-content: space-between;
+  }
+  .text-container p {
+    font-size: 13px;
+    color: rgba(228, 203, 181, 1);
+    letter-spacing: 6px;
+  }
+  .text-container span {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+  .oppenheimer h1 {
+    letter-spacing: 8px;
+    font-size: 30px;
+    color: rgba(249, 216, 16, 255);
+  }
+  .release-date {
+    padding: 0 7px;
+  }
+  .release-date p {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .footer {
+    align-self: left;
+    margin-bottom: 10vh;
+    text-align: center;
+  }
+  .menu {
+    margin-left: 5px;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  .menu li,
+  .menu a {
+    font-size: 18px;
+  }
+  .modal-spotify {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  iframe {
+    width: 300px;
+    height: 400px;
+  }
+  .modal-cast {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 1;
+    overflow-y: auto;
+  }
+  .modal-content-cast {
+    background-color: #222;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 5px auto;
+    position: relative;
+  }
+  .cast-members {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .cast-card {
+    flex: 1 0 60px;
+    text-align: center;
+  }
+  .cast-card img {
+    width: 50px;
+    height: auto;
+  }
+
+  .cast-card h2 {
+    font-size: 15px;
+    color: wheat;
+    margin-top: 10px; /* Add some spacing between the avatar and the name */
+  }
+  .sparkle {
+    width: 2px;
+    height: 2px;
   }
 }

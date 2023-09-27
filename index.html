@@ -14,22 +14,24 @@
 <body>
 
     <div class="text-container">
-        <p><span>A FILM BY </span>CHRISTOPHER NOLAN</p>
-        <div class="oppenheimer">
-            <h1>Oppenheimer</h1>
-            <div class="release-date">
-                <p>21</p>
-                <p>7</p>
-                <p>23</p>
+        <header>
+            <p><span>A FILM BY </span>CHRISTOPHER NOLAN</p>
+            <div class="oppenheimer">
+                <h1>Oppenheimer</h1>
+                <div class="release-date">
+                    <p>21</p>
+                    <p>7</p>
+                    <p>23</p>
+                </div>
             </div>
-        </div>
+        </header>
+
 
         <footer class="footer">
             <ol class="menu">
-                <li class="menu-item">Cast</li>
+                <li id="cast" class="menu-item" onclick="openModal() ">Cast</li>
                 <li class="menu-item">Get Tickets</li>
                 <li id="spotify" class="menu-item">Official SoundTrack</li>
-                <li id="bio" class="menu-item">Biography</li>
             </ol>
         </footer>
 
@@ -40,44 +42,31 @@
     <div class="modal-spotify" id="myModal">
 
         <div class="modal-content">
-            
+
             <span class="close-spotify">&times;</span>
             <iframe style="border-radius:12px"
-                src="https://open.spotify.com/embed/album/0rwbMKjNkp4ehQTwf9V2Jk?utm_source=generator&theme=0" frameBorder="0" allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                src="https://open.spotify.com/embed/album/0rwbMKjNkp4ehQTwf9V2Jk?utm_source=generator&theme=0"
+                frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
             </iframe>
         </div>
-        
+
     </div>
-    <!-- bio Modal -->
 
-    <div class="modal-bio" id="myModal">
+    <!-- Cast Modal -->
 
-        <div class="modal-content">
-            
-            <span class="close-bio">&times;</span>
-            <iframe style="border-radius:12px"
-                src="https://www.britannica.com/biography/J-Robert-Oppenheimer" frameBorder="0" allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-            </iframe>
+    <div class="modal-cast" id="castModal">
+        <span class="close-cast" onclick="closeModal()">&times;</span>
+        <div class="modal-content-cast">
+
+            <div class="cast-members">
+            </div>
+
+
         </div>
-        
+
     </div>
 
-    <!-- CAST modal -->
-    <div class="modal-cast" id="myModal">
-        
-        <div class="modal-content">
-            
-            <span class="close-cast">&times;</span>
-            <iframe style="border-radius:12px"
-                src="" frameBorder="0" allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-            </iframe>
-        
-        </div>
-        
-    </div>
 
 
 

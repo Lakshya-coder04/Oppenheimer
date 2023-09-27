@@ -39,29 +39,13 @@ function closeSpotify() {
 //call the function
 closeSpotify();
 
-
-//close button for the biography modal
-function closeBio(){
-  const closeButton = document.querySelector('.close-bio');
-  const modal = document.querySelector('.modal-bio');
-  const bio = document.getElementById('bio');
-
-  bio.onclick = function () {
-    modal.style.display = 'flex';
-  };
-
-  closeButton.onclick = function () {
-    modal.style.display = 'none';
-  };
-
-  //user click anywhere just close the modal
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
-    }
-  };
+function openModal() {
+  document.getElementById('castModal').style.display = 'block';
 }
-closeBio();
+
+function closeModal() {
+  document.getElementById('castModal').style.display = 'none';
+}
 
 //api key forsquare: fsq3bSewMuMRwCzpIJIwIUbeSYR97aUj8yrSO3RB+9ghEGQ=
 
@@ -81,32 +65,30 @@ async function getPos() {
   });
 }
 
-
-
 async function placeSearch() {
   try {
-      const [lat,long] = await getPos();
+    const [lat, long] = await getPos();
 
-      const searchParams = new URLSearchParams({
-        query: 'movies',
-        ll: `${lat},${long}`,
-        open_now: 'false',
-        sort: 'DISTANCE'
-      });
-      const results = await fetch(
-        `https://api.foursquare.com/v3/places/search?${searchParams}`,
-        {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            Authorization: 'fsq3bSewMuMRwCzpIJIwIUbeSYR97aUj8yrSO3RB+9ghEGQ=',
-          }
-        }
-      );
-      const data = await results.json();
-      console.log(data);
+    const searchParams = new URLSearchParams({
+      query: 'movies',
+      ll: `${lat},${long}`,
+      open_now: 'false',
+      sort: 'DISTANCE',
+    });
+    const results = await fetch(
+      `https://api.foursquare.com/v3/places/search?${searchParams}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'fsq3bSewMuMRwCzpIJIwIUbeSYR97aUj8yrSO3RB+9ghEGQ=',
+        },
+      }
+    );
+    const data = await results.json();
+    console.log(data);
   } catch (err) {
-      console.error(err);
+    console.error(err);
   }
 }
 
@@ -115,7 +97,7 @@ placeSearch();
 //cast info 3fd2be6f0c70a2a598f084ddfb75487c
 
 async function getMovieCast(movieId) {
-  const apiKey = '3fd2be6f0c70a2a598f084ddfb75487c'; 
+  const apiKey = '3fd2be6f0c70a2a598f084ddfb75487c';
   const url = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`;
 
   try {
@@ -125,17 +107,22 @@ async function getMovieCast(movieId) {
     }
 
     const data = await response.json();
-    console.log(data);
     const cast = data.cast;
 
     // Create an array of objects containing both name and avatar URL
-    const castWithAvatars = cast.map(actor => ({
+    const castWithAvatars = cast.map((actor) => ({
       name: actor.name,
-      avatar: `https://image.tmdb.org/t/p/w185${actor.profile_path}`, // Adjust image size as needed
+      avatar: `https://image.tmdb.org/t/p/w185${actor.profile_path}`,
     }));
 
-    // Now you have an array of objects with name and avatar URL
-    // console.log('Cast with Avatars:', castWithAvatars);
+    const castMemebers = document.querySelector('.cast-members');
+
+    for (let index = 0; index < castWithAvatars.length; index++) {
+      const castCard = document.createElement('div');
+      castCard.className = 'cast-card';
+      castCard.innerHTML = `<img src="${castWithAvatars[index].avatar}" alt="${castWithAvatars[index].name}"><h2>${castWithAvatars[index].name}</h2>`;
+      castMemebers.appendChild(castCard);
+    }
   } catch (error) {
     console.error('Error:', error);
   }
